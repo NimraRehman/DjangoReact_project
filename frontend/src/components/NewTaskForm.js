@@ -9,15 +9,17 @@ class NewTaskForm extends React.Component {
   state = {
     pk: 0,
     name: "",
-    email: "",
-    document: "",
-    phone: ""
+    description: "",
+    category: "",
+    task_priority: "",
+    task_status: "",
+    deadline: ""
   };
 
   componentDidMount() {
     if (this.props.task) {
-      const { pk, name, document, email, phone } = this.props.task;
-      this.setState({ pk, name, document, email, phone });
+      const { pk, name, description, category, task_priority, task_status, deadline } = this.props.task;
+      this.setState({ pk, name, description, category, task_priority, task_status, deadline });
     }
   }
 
@@ -58,32 +60,48 @@ class NewTaskForm extends React.Component {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="email">Email:</Label>
+          <Label for="description">Description:</Label>
           <Input
-            type="email"
-            name="email"
+            type="text"
+            name="description"
             onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.email)}
+            value={this.defaultIfEmpty(this.state.description)}
           />
         </FormGroup>
         <FormGroup>
-          <Label for="document">Document:</Label>
+          <Label for="category">Category:</Label>
           <Input
             type="text"
-            name="document"
+            name="category"
             onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.document)}
+            value={this.defaultIfEmpty(this.state.category)}
           />
         </FormGroup>
         <FormGroup>
-          <Label for="phone">Phone:</Label>
+          <Label for="task_priority">Task Priority:</Label>
           <Input
-            type="text"
-            name="phone"
+            type= "number"
+            name="task_priority"
             onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.phone)}
+            value={this.defaultIfEmpty(this.state.task_priority)}
           />
         </FormGroup>
+        <FormGroup>
+          <Label for="task_status">Task Status:</Label>
+          <Input
+            type="boolean"
+            name="task_status"
+            onChange={this.onChange}
+            value={this.defaultIfEmpty(this.state.task_status)}
+          />
+        </FormGroup>
+          <Label for="deadline">Deadline:</Label>
+          <Input
+            type="date"
+            name="deadline"
+            onChange={this.onChange}
+            value={this.defaultIfEmpty(this.state.deadline)}
+          />
         <Button>Send</Button>
       </Form>
     );

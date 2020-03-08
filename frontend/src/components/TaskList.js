@@ -12,10 +12,11 @@ class TaskList extends Component {
         <thead>
           <tr>
             <th>Name</th>
-            <th>Email</th>
-            <th>Document</th>
-            <th>Phone</th>
-            <th>Registration</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Task Priority</th>
+            <th>Task Status</th>
+            <th>Deadline</th>
             <th></th>
           </tr>
         </thead>
@@ -27,13 +28,14 @@ class TaskList extends Component {
               </td>
             </tr>
           ) : (
-          tasks.map(tasks => (
+          tasks.map(task => (
               <tr key={task.pk}>
                 <td>{task.name}</td>
-                <td>{task.email}</td>
-                <td>{task.document}</td>
-                <td>{task.phone}</td>
-                <td>{task.registrationDate}</td>
+                <td>{task.description}</td>
+                <td>{task.category}</td>
+                <td>{task.task_priority}</td>
+                <td>{task.task_status}</td>
+                <td>{task.deadline}</td>
                 <td align="center">
                   <NewTaskModal
                     create={false}

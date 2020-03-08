@@ -21,7 +21,7 @@ class Home extends Component {
   };
 
   resetState = () => {
-    this.tasks();
+    this.getTasks();
   };
 
   render() {
